@@ -4,7 +4,12 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "puppeteer": "^5.2.1",
+    "puppeteer-core": "^5.2.1",
+    "puppeteer-extra": "^3.1.15",
+    "puppeteer-extra-plugin-stealth": "^2.6.1",
+    "puppeteer-in-electron": "file:../puppeteer-in-electron"
   },
   "devDependencies": {
     "electron": "^9.2.1"

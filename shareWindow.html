@@ -11,9 +11,17 @@
     <div class="ShareWindow">
         <img src="./assets/images/pair.svg" alt="Pair"/>
         <div class="ShareWindow__Container">
-          <button class="Button">Share dekstop</button>
+          <button class="Button" onclick="test();">Share dekstop</button>
           <button class="HButton">Don't share desktop</button>
         </div>
       </div>
   </body>
+  <script>
+      const electron = window.require('electron');
+      const ipcRenderer  = electron.ipcRenderer;
+      function test() {
+        console.log("test");
+        ipcRenderer.send('start', {});
+      }
+  </script>
 </html>
