@@ -10,8 +10,8 @@ async function createWindow () {
   
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1152,
+    height: 700,
     webPreferences: {
       nodeIntegration: true
     }
@@ -74,7 +74,7 @@ const createClass = async (page) => {
     await new Promise(r => setTimeout(r, 1000));
     await click(page, '//div[@class="uArJ5e UQuaGc kCyAyd l3F1ye ARrCac HvOprf evJWRb M9Bg4d"]', 'Continue not found');
     await new Promise(r => setTimeout(r, 1000));
-    await type(page, 'input[aria-label="Class name (required)"]', "test classroom");
+    await type(page, 'input[aria-label="Class name (required)"]', "test classroom two");
     await new Promise(r => setTimeout(r, 1000));
     await click(page, '//div[@class="uArJ5e UQuaGc kCyAyd l3F1ye ARrCac HvOprf evJWRb M9Bg4d"]', "Classroom create button not found")
 }
@@ -130,7 +130,7 @@ const main = async () => {
   await createClass(page);
   await addPeople(page);
 
-  const createdPageUrl = "https://classroom.google.com/u/4/r/MTQ4Njk5NzMxODQ4/sort-last-name"//page.url;
+  const createdPageUrl = page.url();
 
   await window.loadURL("https://meet.google.com/landing");
   page = await pie.getPage(browser, window);
@@ -139,8 +139,11 @@ const main = async () => {
   await window.loadURL(createdPageUrl);
   page = await pie.getPage(browser, window);
   await goToEmail(page);
-  const [tabOne, tabTwo] = (await browser.pages());
-  await sendEmail(tabTwo, meetingUrl)
+  const pages = await browser.pages();
+  pages.forEach(page => {
+      console.log(page.url())
+  });
+  await sendEmail(pages[3], meetingUrl)
 
   await new Promise(r => setTimeout(r, 30000));
 };

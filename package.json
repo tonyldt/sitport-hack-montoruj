@@ -9,7 +9,7 @@
     "puppeteer-core": "^5.2.1",
     "puppeteer-extra": "^3.1.15",
     "puppeteer-extra-plugin-stealth": "^2.6.1",
-    "puppeteer-in-electron": "file:../puppeteer-in-electron"
+    "puppeteer-in-electron": "^3.0.3"
   },
   "devDependencies": {
     "electron": "^9.2.1"
