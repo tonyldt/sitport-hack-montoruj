@@ -112,17 +112,18 @@ const goToEmail = async (page) => {
     await click(page, '//div[@class="U26fgb p0oLxb BEAGS tggdAd CG2qQ"]', 'Actions combo not found!');
     await new Promise(r => setTimeout(r, 1000));
     await click(page, '//span[@aria-label="Email"]', "Email button not found");
-    await new Promise(r => setTimeout(r, 10000));
+    await new Promise(r => setTimeout(r, 5000));
 }
 
 const sendEmail = async (page, meetingUrl) => {
+  await page.waitForSelector('input[placeholder="Subject"]');
   await type(page, 'input[placeholder="Subject"]', "Your classroom is having an online meeting!");
   await type(page, 'div[aria-label="Message Body"]', meetingUrl);
+  await click(page, '//div[@data-tooltip="Send ‪(⌘Enter)‬"]', 'Send message');
 }
 
 const main = async () => {
   const browser = await pie.connect(app, puppeteer);
-
   const window = new BrowserWindow();
   await window.loadURL("https://classroom.google.com/u/0/h");
  
@@ -139,11 +140,18 @@ const main = async () => {
   await window.loadURL(createdPageUrl);
   page = await pie.getPage(browser, window);
   await goToEmail(page);
+
   const pages = await browser.pages();
+  let mainPage = null;
   pages.forEach(page => {
-      console.log(page.url())
+      if(page.url().includes("mail.google.com")) {
+        mainPage = page;
+        console.log(page.url())
+      }
   });
-  await sendEmail(pages[3], meetingUrl)
+  await sendEmail(mainPage, meetingUrl)
+
+  await window.loadURL("https://" + meetingUrl);
 
   await new Promise(r => setTimeout(r, 30000));
 };
