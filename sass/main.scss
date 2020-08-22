@@ -1,0 +1,188 @@
+@import "./assets/fonts/nunito";
+
+// COLOR VARIABLES
+$color-primary-white: white;
+$color-primary-dark: #101d2c;
+
+$color-primary: #00BFA6;
+
+// FONT VARIABLES
+$font-primary: "Nunito", sans-serif;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 600px
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+
+  @media only screen and(max-width: $bp-largest) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-primary-dark;
+  background-color: $color-primary-white;
+  font-weight: 300;
+  line-height: 1.6;
+  padding: 2rem;
+  position: relative;
+}
+
+a {
+  color: $color-primary-dark;
+  text-decoration: none;
+}
+
+// start
+.Start {
+    z-index: 0;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 28rem 1fr 1fr;
+
+    & h1 {
+        grid-row: 2;
+        text-align: center;
+        font-size: 3.6rem;
+    }
+}
+
+.Service-Container {
+    grid-row: 4;
+    padding-right: 4rem;
+    padding-left: 4rem;
+
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 19rem;
+
+    & a {
+        display: inline-block;
+        cursor: pointer;
+
+        & div {
+            display: block;
+            text-align: center;
+            font-size: 3.6rem;
+        }
+    }
+}
+
+.Service {
+    &__gm {
+        grid-column: 1;
+    }
+
+    &__MT {
+        grid-column: 2;
+    }
+
+    &__Z {
+        grid-column: 3;
+    }
+}
+
+// start lesson
+.StartLesson {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+
+    &__Container {
+        display: grid;
+        grid-template-rows: 20rem 10rem;
+        justify-items: center;
+        text-align: center;
+        align-items: center;
+        transition: .5s all;
+
+        &:hover {
+            border: .5rem solid #00BFA6;
+            border-radius: 2rem;
+            padding-top: 5rem;
+            padding-bottom: 3rem;
+            padding-right: 4rem;
+            padding-left: 4rem;
+        }
+    }
+
+    & input {
+        width: 30rem;
+        grid-row: 1;
+        outline: none;
+    }
+
+    &__Container div {
+        font-size: 3.6rem;
+        grid-row: 2;
+    }
+
+
+}
+// share window
+.ShareWindow {
+    position: relative;
+    height: 100vh;
+
+    & img {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%, -50%);
+        width: 62rem;
+    }
+
+    &__Container {
+        position: absolute;
+        bottom: 10rem;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+}
+
+// button
+.Button {
+    display: inline-block;
+    position: relative;
+    border-radius: 5rem;
+    background-color: #00BFA6;
+    font-size: 3.6rem;
+    color: white;
+    border: none;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    cursor: pointer;
+}
+.HButton {
+    display: inline-block;
+    position: relative;
+    font-size: 3.6rem;
+    border: none;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    background-color: transparent;
+    cursor: pointer;
+}

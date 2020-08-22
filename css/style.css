@@ -1,0 +1,137 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Nunito';
+  src: url("Nunito-Bold.ttf") format("truetype");
+  /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */ }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #101d2c;
+  background-color: white;
+  font-weight: 300;
+  line-height: 1.6;
+  padding: 2rem;
+  position: relative; }
+
+a {
+  color: #101d2c;
+  text-decoration: none; }
+
+.Start {
+  z-index: 0;
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 28rem 1fr 1fr; }
+  .Start h1 {
+    grid-row: 2;
+    text-align: center;
+    font-size: 3.6rem; }
+
+.Service-Container {
+  grid-row: 4;
+  padding-right: 4rem;
+  padding-left: 4rem;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 19rem; }
+  .Service-Container a {
+    display: inline-block;
+    cursor: pointer; }
+    .Service-Container a div {
+      display: block;
+      text-align: center;
+      font-size: 3.6rem; }
+
+.Service__gm {
+  grid-column: 1; }
+
+.Service__MT {
+  grid-column: 2; }
+
+.Service__Z {
+  grid-column: 3; }
+
+.StartLesson {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  text-align: center;
+  align-items: center; }
+  .StartLesson__Container {
+    display: grid;
+    grid-template-rows: 20rem 10rem;
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+    transition: .5s all; }
+    .StartLesson__Container:hover {
+      border: .5rem solid #00BFA6;
+      border-radius: 2rem;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
+      padding-right: 4rem;
+      padding-left: 4rem; }
+  .StartLesson input {
+    width: 30rem;
+    grid-row: 1;
+    outline: none; }
+  .StartLesson__Container div {
+    font-size: 3.6rem;
+    grid-row: 2; }
+
+.ShareWindow {
+  position: relative;
+  height: 100vh; }
+  .ShareWindow img {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    width: 62rem; }
+  .ShareWindow__Container {
+    position: absolute;
+    bottom: 10rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center; }
+
+.Button {
+  display: inline-block;
+  position: relative;
+  border-radius: 5rem;
+  background-color: #00BFA6;
+  font-size: 3.6rem;
+  color: white;
+  border: none;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  cursor: pointer; }
+
+.HButton {
+  display: inline-block;
+  position: relative;
+  font-size: 3.6rem;
+  border: none;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  background-color: transparent;
+  cursor: pointer; }

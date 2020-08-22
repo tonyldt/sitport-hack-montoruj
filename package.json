@@ -1,0 +1,18 @@
+{
+  "name": "sitport-hack-pilsen-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  },
+  "devDependencies": {
+    "electron": "^9.2.1"
+  },
+  "scripts": {
+    "start": "electron .",
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "",
+  "license": "ISC"
+}
